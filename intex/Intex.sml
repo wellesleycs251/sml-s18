@@ -61,6 +61,18 @@ fun sexpToPgm (Sexp.Seq[Sexp.Sym "intex", Sexp.Int n, body]) =
 
 and sexpToExp (Sexp.Int i) = Int i
   | sexpToExp (Sexp.Seq[Sexp.Sym "$", Sexp.Int i]) = Arg i
+  (* Treat $n as a shorthand for ($ n) *)
+  | sexpToExp (Sexp.Sym s) =
+    if String.sub(s, 0) = #"$" then
+	(* try to parse rest of string as int *)
+	(case Int.fromString(String.extract(s, 1, NONE)) of
+	     SOME i => Arg i
+           | NONE => raise (SyntaxError ("invalid Intex symbol " ^ s)))
+	handle
+    	  exn => raise (SyntaxError ("Exception when parsing Intex symbol: "
+	  			     ^ (exnMessage exn)))
+    else
+	raise (SyntaxError ("invalid Intex symbol" ^ s))
   | sexpToExp (Sexp.Seq[Sexp.Sym p, rand1, rand2]) =
     BinApp(stringToPrimop p, sexpToExp rand1, sexpToExp rand2)
   | sexpToExp sexp =  raise (SyntaxError ("invalid Intex expression: "
