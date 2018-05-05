@@ -147,7 +147,12 @@ structure MiniFPTest = struct
 
       ((mmS, matrices1S), "((61 71) (380 430))"), 
       ((mmS, matrices2S), "((42 83 125) (76 144 220) (104 201 305))"), 
-      ((mmS, vectorsS), "Error: transpose -- not a sequence of sequences: (10 20 30)")
+      ((mmS, vectorsS), "Error: transpose -- not a sequence of sequences: (10 20 30)"),
+
+      (* Tests of F and F_sx from Problem 1a *)
+      ((funFormToString F, vector1S), "(20 30 50)"), 
+      ((Sexp.sexpToString F_sx, vector1S), "(20 30 50)")	  
+
     ]
 
   fun testEntries entries = 
