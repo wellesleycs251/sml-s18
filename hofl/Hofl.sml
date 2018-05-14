@@ -4,10 +4,11 @@
    (they desugar into applications of abstractions.)
 ****************************************************************)
 
+(* Use loader, not these!
 use "../sexp/Sexp.sml";
 use "../utils/StringSet.sml";
-use "../utils/Utils.sml";
-use "../hofl/Env.sml"; (* Use HOFL version of env, not Utils version *)
+use "../utils/Utils.sml"; 
+use "../hofl/Env.sml"; (* Use HOFL version of env, not Utils version *) *)
 
 structure Hofl = struct
 

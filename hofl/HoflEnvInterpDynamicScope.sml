@@ -1,6 +1,8 @@
 (* Dynamically-scoped environment model interpreter for Hofl *)
 
+(* Use loader, not this: 
 use "../hofl/Hofl.sml";
+ *)
 
 structure HoflEnvInterpDynamicScope = struct
 

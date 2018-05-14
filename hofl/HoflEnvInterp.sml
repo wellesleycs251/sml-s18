@@ -1,6 +1,8 @@
 (* Statically-scoped environment model interpreter for Hofl *)
 
+(* Use loader, not these!
 use "../hofl/Hofl.sml";  (* HOFL syntax *)
+ *)
 
 structure HoflEnvInterp = struct
 
