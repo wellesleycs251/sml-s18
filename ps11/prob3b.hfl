@@ -1,0 +1,6 @@
+(bind f (abs x (+ x 1))
+  (bindseq ((f (abs n
+                 (if (= n 0)
+                     1
+                     (* n (f (- n 1)))))))
+    (f 3)))

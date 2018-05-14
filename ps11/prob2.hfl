@@ -1,0 +1,8 @@
+(hofl (a)
+  (bind linear (fun (a b)
+                 (fun (x)
+                   (+ (* a x) b)))
+    (bind line1 (linear 1 2)
+      (bind line2 (linear 3 4)
+        (bind try (fun (b) (list (line1 b) (line2 (+ b 1)) (line2 (+ b 2))))
+          (try (+ a a)))))))
