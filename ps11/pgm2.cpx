@@ -1,0 +1,10 @@
+; ps9/pgm2.cpx
+; 
+; Given program arguments a and b:
+; * return the square of their differences if a > b
+; * return twice a if a = b
+; * return the product of a and the difference if a < b
+; Store this in ps9/abs.cpx
+(compex (a b)
+  (bind diff (- a b)
+    (comp diff (* diff diff) (* 2 a) (* a diff))))

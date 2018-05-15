@@ -1,0 +1,12 @@
+; ps9/pgm5.cpx
+;
+; If x > y > z, returns the sum of x, y, and z.
+; If x = y = z, returns x
+; If x < y < z, returns the product of x, y, and z.
+; Otherwise gives a divide-by-zero error.
+; (tests that only one branch is evaluated)
+(compex (x y z)
+  (comp (- x y)
+        (comp (- y z) (+ x (+ y z)) (/ y 0) (/ z 0))
+        (comp (- y z) (/ y 0) x (/ z 0))
+        (comp (- y z) (/ y 0) (/ z 0) (* x (* y z)))))

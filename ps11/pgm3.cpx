@@ -1,0 +1,8 @@
+; ps9/pgm3.cpx
+;
+; Return the max of a, b, and c
+(compex (a b c)
+  (comp (- a b)
+	(comp (- a c) a a c)
+        (comp (- a c) a a c)
+	(comp (- b c) b b c)))

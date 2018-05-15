@@ -1,0 +1,4 @@
+; ps9/pgm1.cpx
+;
+; An absolute value program
+(compex (n) (comp n n 0 (- 0 n)))

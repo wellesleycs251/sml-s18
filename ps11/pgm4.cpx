@@ -1,0 +1,12 @@
+; ps9/pgm4.cpx
+;
+; Test the interaction of comp with bind and itself
+(compex (p q r)
+  (+ (bind s (- p q)
+       (bind t (- q r)
+         (* (comp s (+ p q) (+ p r) (+ q r))
+            (comp t (- p q) (- p r) (- q r)))))
+     (comp (- r q)
+       (bind u (+ p q) (comp u u (* 2 u) (* 3 u)))
+       (bind v (+ p r) (comp v (* 4 v) (* 5 v) (* 6 v)))
+       (bind w (+ q r) (comp w (* 7 w) (* 8 w) (* 9 w))))))
